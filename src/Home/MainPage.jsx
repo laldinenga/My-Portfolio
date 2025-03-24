@@ -1,16 +1,18 @@
 import React from "react";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 function MainPage() {
   return (
     <div className="">
-      <div className="bg-fuchsia-900 ">
-        {/* <ul className="flex justify-center gap-x-6">
+      {/* <div className="bg-fuchsia-900 "> */}
+      {/* <ul className="flex justify-center gap-x-6">
           <li className="">Portfolio</li>
           <li>Home</li>
           <li>Skills</li>
           <li>About</li>
           <li>Contact</li>
-        </ul> */}
+        </ul>
         <ul className="flex justify-start gap-x-6 w-full">
           <li className="ml-6 font-bold">Portfolio</li>
           <div className="flex justify-center ml-auto gap-x-6 mr-50">
@@ -20,21 +22,51 @@ function MainPage() {
             <li>Contact</li>
           </div>
         </ul>
-      </div>
-      <div className="text-left relative inline-block">
+      </div> */}
+      <div className="flex flex-col h-screen w-full justify-center items-center bg-black">
         <img
-          className="w-full h-auto brightness-60"
-          src="../../public/Image/backg2.png"
+          className="h-24 w-24"
+          src="../../public/Image/myphoto.png"
           alt="tech image"
         ></img>
-        <h1 className="absolute top-1/3 left-4 font-bold shadow-2xl">
-          Hello <br />
-          I'm Lal Din Enga <br /> You can call me Din
-        </h1>
-        <p className="absolute top-2/3 left-4">
-          I finished Masters of IT and Systems from Victorian Institute of
-          Technology
+        <p className=" font-bold text-center text-3xl">
+          Experience in IT Support <br />
+          And Full Stack Development <br />
+          specializing in ReactJS and SpringBoot
         </p>
+        <p className="text-xl mt-3 text-gray-500">
+          I have a strong foundation in HTML, CSS, JavaScript, Java, Linux and
+          AWS
+        </p>
+        <div className="flex flex-row mt-3 space-x-4">
+          <button className="bg-blue-700">Contact Me</button>
+          <button className="">Download CV</button>
+          <button className=""><FaLinkedin size={24}/></button>
+          <button><FaGithub size={24}/></button>
+        </div>
+      </div>
+      <div className="button-group flex border-2 border-gray-500">
+        <button
+          className="flex-1 border-gray-500 hover:bg-gray-100 focus:outline-none"
+          id="contact-button"
+          onclick="setActive('contact')"
+        >
+          Contact Me
+        </button>
+        <button
+          className="flex-1 border-gray-500 hover:bg-gray-100 focus:outline-none"
+          id="download-button"
+          onclick="setActive('download')"
+        >
+          Download CV
+        </button>
+        <button
+          className="flex-1 hover:bg-gray-100 focus:outline-none"
+          id="linkedin-button"
+          onclick="setActive('linkedin')"
+        >
+          LinkedIn
+        </button>
       </div>
       <div className="mt-2 text-left bg-gray-500">
         <h2 className="bg-amber-700 rounded-2xl p-2 w-33">About My Skills</h2>
