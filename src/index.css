@@ -39,19 +39,19 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
+  /* border-radius: 8px; */
   border: 2px solid transparent;
   padding: 0.4em 1.1em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
   /* background-color: #1a1a1a; */
-  background-color: #14686C;
+  /* background-color: #14686C; */
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  /* border-color: #646cff; */
   /* border-color: #52842E; */
 }
 button:focus,
