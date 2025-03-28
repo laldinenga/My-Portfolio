@@ -1,5 +1,50 @@
 @import "tailwindcss";
 
+@theme{   
+}
+/* @keyframes spinAndFall {
+  0% {
+    transform: translateY(0) rotate(0deg); 
+  }
+  50% {
+    transform: translateY(150px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(300px) rotate(360deg);
+  }
+  50% {
+    transform: translateY(150px) rotate(180deg);
+  }
+} */
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.5;
+    /* transform: translateX(-100px); */
+    /* clip-path: inset(100% 100% 0 0); */
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    /* transform: translateY(0px); */
+    /* clip-path: inset(0 0 0 0); */
+  }
+}
+
+.blockAppear {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+
+/* 
+.animate-spin-and-fall {
+  animation: spinAndFall 2s infinite;
+  transform-origin: center top;
+} */
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -54,10 +99,10 @@ button:hover {
   /* border-color: #646cff; */
   /* border-color: #52842E; */
 }
-button:focus,
+/* button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+  outline: 1px auto -webkit-focus-ring-color;
+} */
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -72,5 +117,4 @@ button:focus-visible {
   }
 }
 
-@import "tailwindcss/preflight"
 @tailwind utilities;
