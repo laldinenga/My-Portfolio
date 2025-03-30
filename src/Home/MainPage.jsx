@@ -20,6 +20,7 @@ import { SiVmware } from "react-icons/si";
 import { SiVirtualbox } from "react-icons/si";
 import { BsMicrosoft } from "react-icons/bs";
 import { BiLogoMicrosoftTeams } from "react-icons/bi";
+import { CgArrowLongRightC } from "react-icons/cg";
 
 function MainPage() {
   
@@ -44,11 +45,15 @@ function MainPage() {
       threshold: 0, // Trigger when 50% of the div is visible
     });
 
-    // Observe each div
+    // Observe each h2
     h2s.forEach(h2 => observer.observe(h2));
 
     // Cleanup the observer when the component is unmounted
-    return () => observer.disconnect();
+    return () =>
+      //  observer.disconnect();
+    h2s.forEach(h2 =>{
+      observer.unobserve(h2);
+    });
   }, []);
 
   return (
@@ -97,13 +102,13 @@ function MainPage() {
           </button>
         </div>
       </div>
-      <div className="flex items-center justify-center bg-black sticky top-2 z-10">
-        <div className="flex flex-row bg-black justify-center border-1 w-fit rounded-3xl items-center">
-          <button className={`rounded-3xl hover:bg-neutral-800 active:bg-neutral-700 ${activeSection === 'about' ? 'bg-neutral-800' : ''}`}
+      <div className="flex items-center bg-black justify-center sticky top-2 z-10">
+        <div className="flex flex-row bg-black justify-center border-1 w-fit h-8 rounded-3xl items-center ">
+          <button className={`flex rounded-3xl h-7 items-center hover:bg-neutral-800 active:bg-neutral-700 ${activeSection === 'about' ? 'bg-neutral-800' : ''}`}
           onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}>About</button>
-          <button className={`rounded-3xl hover:bg-neutral-800 active:bg-neutral-700 ${activeSection === 'skills' ? 'bg-neutral-800' : ''}`}
+          <button className={`flex items-center rounded-3xl h-7 hover:bg-neutral-800 active:bg-neutral-700 ${activeSection === 'skills' ? 'bg-neutral-800' : ''}`}
           onClick={() => document.getElementById('skills').scrollIntoView({ behavior: 'smooth' })}>Skills</button>
-          <button className={`rounded-3xl hover:bg-neutral-800 active:bg-neutral-700 ${activeSection === 'project' ? 'bg-neutral-800' : ''}`}
+          <button className={`flex items-center rounded-3xl h-7 hover:bg-neutral-800 active:bg-neutral-700 ${activeSection === 'project' ? 'bg-neutral-800' : ''}`}
           onClick={() => document.getElementById('project').scrollIntoView({ behavior: 'smooth' })}>Project</button>
         </div>
       </div>
@@ -152,7 +157,7 @@ function MainPage() {
               <SiVirtualbox size={30} />
             </li>
             <li>
-              <SiVmware size={30} />
+              <SiVmware size={40} />
             </li>
             <li>
               <BsMicrosoft size={30} />
@@ -244,16 +249,17 @@ function MainPage() {
               </svg>
             </div> */}
             <div className="blockAppear">
-              <div className="flex flex-row justify-start mt-4 ml-[10%] ">
-                <div className="text-[11px] p-2 border-[0.5px] border-neutral-700 rounded-md shadow-xl shadow-slate-700">
-                  <p className="font-bold">
-                    The website you are watching right now
+              <div className="grid grid-cols-5 justify-start mt-4 pl-4">
+                <div className="text-[11px] p-2 col-span-2 border-neutral-700 rounded-md shadow-xl shadow-slate-700 text-start">
+                  <h2 className="font-bold text-cyan-300">
+                    My Portfolio
+                  </h2>
+                  <p className="py-1">ReactJS, TailwindCss</p>
+                  <p>
+                  A sleek, responsive, and modern portfolio built using ReactJS and Tailwind CSS.
+                  Showcasing my skills, projects, and experience, this site offers a seamless user interface
+                  with optimized performance. ReactJS powers the dynamic interactions, while Tailwind CSS ensures a customizable and visually appealing design. Explore my work and discover what I can create
                   </p>
-                  <p>Tech stacks used for this project</p>
-                  <ul>
-                    <li>ReactJS</li>
-                    <li>TailwindCss</li>
-                  </ul>
                   <p>
                     <a href="https://github.com/laldinenga/My-Portfolio.git">
                       Click to view source code
@@ -261,18 +267,11 @@ function MainPage() {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-row justify-end items-center mr-[10%] ">
-                <div className="text-[11px] shadow-xl p-2 border-[0.5px] border-neutral-700 shadow-slate-700 rounded-md">
-                  <p className="font-bold">LushAITech Website</p>
-                  <p>A Startup Company official website</p>
-                  <p>Tech stacks used for this project</p>
-                  <ul>
-                    <li>ReactJS</li>
-                    <li>SASS</li>
-                    <li>NodeJS</li>
-                    <li>MySql</li>
-                    <li>AWS RDS</li>
-                  </ul>
+              <div className="grid grid-cols-5 justify-end">
+                <div className="col-start-4 col-end-6 text-[11px] shadow-xl p-2 border-neutral-700 shadow-slate-700 rounded-md">
+                  <h2 className="font-bold">LushAITech Website</h2>
+                  <p>ReactJS, SCSS, NodeJS, MySQL, AWS RDS</p>
+                  <p></p>
                   <p>
                     <a href="https://www.lushaitech.com/">
                       https://www.lushaitech.com
