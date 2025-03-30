@@ -39,6 +39,29 @@
 }
 
 
+/* @keyframes spinning {
+  0% {
+    transform: rotateY(0deg) translateY(0px); 
+  }
+  25% {
+    transform: rotateY(90deg) translateY(75px); 
+  }
+  50% {
+    transform: rotateY(180deg) translateY(150px);
+  }
+  75% {
+    transform: rotateY(270deg) translateY(230px);
+  }
+  100% {
+    transform: rotateY(360deg) translateY(500px);
+  }
+}
+
+.spin {
+  animation: spinning 2s linear infinite;
+  transform-origin: left center;
+} */
+
 /* 
 .animate-spin-and-fall {
   animation: spinAndFall 2s infinite;
