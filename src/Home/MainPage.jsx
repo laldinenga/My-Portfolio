@@ -75,9 +75,10 @@ function MainPage() {
         <div className="flex flex-row mt-3 space-x-2 md:space-x-4">
           <button
             type="button"
-            onClick={() => {
-              setActiveEmail(true);
-            }}
+            onClick={contact}
+            // onClick={() => {
+            //   setActiveEmail(true);
+            // }}
             className="bg-[#14686C] rounded-xl border-2 p-2"
           >
             Contact Me
