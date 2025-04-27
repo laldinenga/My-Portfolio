@@ -4,8 +4,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { expIcons } from "./Icons";
 import { InternIcons } from "./Icons";
 import { handsOnIcons } from "./Icons";
-import ContactModal from "./ContactModal";
-import Modal from "../assets/Modal";
+
 
 function MainPage() {
   const [activeSection, setActiveSection] = useState("");
@@ -83,13 +82,6 @@ function MainPage() {
           >
             Contact Me
           </button>
-          
-          {/* {activeEmail && (
-            <ContactModal isOpen={true} onClose={() => setActiveEmail(false)} />
-          )} */}
-          {/* {
-            <ContactModal isOpen={!!activeEmail} onClose={()=>{setActiveEmail(false);}}/>
-          } */}
           <button
             type="button"
             className="bg-[#14686C] rounded-xl border-2 p-2"
