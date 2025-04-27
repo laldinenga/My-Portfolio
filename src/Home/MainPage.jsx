@@ -4,9 +4,12 @@ import { FaLinkedin } from "react-icons/fa";
 import { expIcons } from "./Icons";
 import { InternIcons } from "./Icons";
 import { handsOnIcons } from "./Icons";
+import ContactModal from "./ContactModal";
+import Modal from "../assets/Modal";
 
 function MainPage() {
   const [activeSection, setActiveSection] = useState("");
+  // const [activeEmail, setActiveEmail] = useState(false);
 
   useEffect(() => {
     const h2s = document.querySelectorAll("h2[id]"); // Get all divs with an id
@@ -72,11 +75,20 @@ function MainPage() {
         <div className="flex flex-row mt-3 space-x-2 md:space-x-4">
           <button
             type="button"
-            onClick={contact}
+            onClick={() => {
+              setActiveEmail(true);
+            }}
             className="bg-[#14686C] rounded-xl border-2 p-2"
           >
             Contact Me
           </button>
+          
+          {/* {activeEmail && (
+            <ContactModal isOpen={true} onClose={() => setActiveEmail(false)} />
+          )} */}
+          {/* {
+            <ContactModal isOpen={!!activeEmail} onClose={()=>{setActiveEmail(false);}}/>
+          } */}
           <button
             type="button"
             className="bg-[#14686C] rounded-xl border-2 p-2"
@@ -84,7 +96,7 @@ function MainPage() {
             Download CV
           </button>
           <a
-            href="https://www.linkedin.com/in/lal-dinenga-499097a8/"
+            href="https://www.linkedin.com/in/lal-din-enga-499097a8/"
             className="bg-[#14686C] px-3.5 py-[6.4px] rounded-xl border-2 flex items-center justify-center"
           >
             <FaLinkedin size={24} />
@@ -98,10 +110,10 @@ function MainPage() {
         </div>
       </div>
       <div className="flex items-center bg-black justify-center sticky top-2 z-10">
-        <div className="flex flex-row justify-center border-2 space-x-3 w-fit h-8 rounded-3xl p-2 items-center ">
+        <div className="flex flex-row justify-center border-2 h-8 w-fit rounded-3xl items-center ">
           <button
-            className={`flex rounded-3xl h-7 items-center hover:bg-neutral-800 active:bg-neutral-700 ${
-              activeSection === "about" ? "bg-neutral-800" : ""
+            className={`flex rounded-3xl p-2 h-7 items-center hover:bg-neutral-600 active:bg-neutral-500 ${
+              activeSection === "about" ? "bg-neutral-600" : ""
             }`}
             onClick={() =>
               document
@@ -112,8 +124,8 @@ function MainPage() {
             About
           </button>
           <button
-            className={`flex items-center rounded-3xl h-7 hover:bg-neutral-800 active:bg-neutral-700 ${
-              activeSection === "skills" ? "bg-neutral-800" : ""
+            className={`flex items-center rounded-3xl p-2 h-7 hover:bg-neutral-800 active:bg-neutral-700 ${
+              activeSection === "skills" ? "bg-neutral-600" : ""
             }`}
             onClick={() =>
               document
@@ -124,8 +136,8 @@ function MainPage() {
             Skills
           </button>
           <button
-            className={`flex items-center rounded-3xl h-7 hover:bg-neutral-800 active:bg-neutral-700 ${
-              activeSection === "project" ? "bg-neutral-800" : ""
+            className={`flex items-center rounded-3xl p-2 h-7 hover:bg-neutral-800 active:bg-neutral-700 ${
+              activeSection === "project" ? "bg-neutral-600" : ""
             }`}
             onClick={() =>
               document
@@ -315,7 +327,7 @@ function MainPage() {
                 </div>
               </div>
             </div>
-            
+
             <div className="relative w-full h-1 overflow-hidden">
               <div className="absolute top-0 left-0 h-full w-20 bg-gradient-to-r from-[#f75757] to-[#0094f7] opacity-50 animate-light-sweep"></div>
             </div>
@@ -328,8 +340,10 @@ function MainPage() {
                   </p>
                 </div>
                 <p className="p-2 text-[10px] md:text-xl text-center">
-                  A cutting-edge web app built with ReactJS and NodeJS powered with AI, crafted to bridge the gap between 
-                  talent and opportunity by connecting job seekers with recruiters in real-time.
+                  A cutting-edge web app built with ReactJS and NodeJS powered
+                  with AI, crafted to bridge the gap between talent and
+                  opportunity by connecting job seekers with recruiters in
+                  real-time.
                 </p>
                 <a
                   className="text-[10px] md:text-xl font-semibold text-[#53e1e9] mt-2"
@@ -362,9 +376,10 @@ function MainPage() {
               </div>
             </div>
           </div>
-          <div className="sm:hidden lg:block relative">
+          <div className="hidden lg:block relative">
             {/* <div className="absolute w-px h-full left-1/2 bg-gradient-to-b from-[#515554] to-[#505f69]"></div> */}
-            <div className="blockAppear">
+            {/* blockAppear */}
+            <div className="">
               <div className="grid grid-cols-7 p-2 shadow-2xl">
                 <div className="col-start-1 col-end-4 pl-2 text-start pr-1">
                   <p className="text-5xl md:text-9xl font-semibold">01.</p>
@@ -383,7 +398,7 @@ function MainPage() {
                   <p className="text-[10px] md:text-xl font-semibold text-[#53e1e9] mt-2">
                     Tech Stack Used for this Project
                   </p>
-                  <div className="md:pl-2 text-[6px] md:text-[13px]">
+                  <div className="pl-2 text-[13px]">
                     <p>ReactJS</p>
                     <p className="text-[#53e1e9]">To Create Webpage</p>
                     <p>TailwindCSS</p>
@@ -404,12 +419,16 @@ function MainPage() {
                     </a>
                   </p>
                 </div>
-                <div className="col-start-4 col-span-4 gap-x-2 border-2 shadow-2xl shadow-yellow-300 flex justify-center items-center ">
-                  <img
-                      className="-skew-x-12 rounded-md w-[650px] shadow-lg shadow-rose-900"
+                {/* w-[658px] h-[315px] */}
+                <div className="col-start-4 col-span-4 gap-x-2 content-center">
+                  <div className="relative">
+                    <div className="absolute ledlight -skew-x-12 min-h-full w-full max-w-[652px] top-1"></div>
+                    <img
+                      className=" -skew-x-12 rounded-lg w-[650px] z-10"
                       src="./Image/project1.png"
                       alt="portfolio image"
                     />
+                  </div>
                 </div>
 
                 {/* <div className="col-start-4 col-end-8"></div> */}
@@ -445,15 +464,17 @@ function MainPage() {
                   </div> */}
                 {/* </div> */}
               </div>
-              
 
               <div className=" grid grid-cols-7 p-2 mt-3 shadow-2xl">
-                <div className="col-span-4 border-2 flex items-center justify-center shadow-2xl shadow-yellow-300">
+                <div className="col-span-4 flex items-center justify-center">
+                  <div className="relative">
+                    <div className="absolute ledlight -skew-y-6 -skew-x-6 min-h-full w-full max-w-[610px] top-1 left-1"></div>
                     <img
-                      className="-skew-y-6 -skew-x-6 w-[650px] shadow-lg shadow-rose-900"
+                      className="-skew-y-6 -skew-x-6 w-[600px] rounded-lg"
                       src="./Image/2a.png"
                       alt="lushaiweb"
                     />
+                  </div>
                 </div>
                 <div className="col-span-3 text-right pr-2">
                   <p className="font-semibold text-2xl md:text-9xl ">02.</p>
@@ -492,28 +513,54 @@ function MainPage() {
                   </p>
                 </div>
               </div>
-              <div className="md:grid grid-cols-5 justify-start">
-                <div className="text-[11px] p-2 col-span-2 border-neutral-700 rounded-md shadow-xl shadow-slate-700 text-start">
-                  <p className="font-bold">ApplyKart website</p>
-                  <p>
-                    A job posting Web Application to connect <br /> job seekers
-                    with recruiters
+              <div className="grid grid-cols-7 p-2 shadow-2xl">
+                <div className="col-start-1 col-end-4 pl-2 text-start pr-1">
+                  <p className="text-5xl md:text-9xl font-semibold">03.</p>
+                  <div className="flex items-center">
+                    <div className="w-15 md:w-40 border-t-4 border-blue-500 mx-2"></div>
+                    <div className="flex-grow border-t-2 border-gray-300"></div>
+                  </div>
+                  <p className="text-[10px] md:text-xl font-semibold text-[#53e1e9]">
+                    ApplyKart Web App
                   </p>
-                  <p>Tech stacks used for this project</p>
-                  <ul>
-                    <li>ReactJS</li>
-                    <li>TailwindCSS</li>
-                    <li>NodeJS</li>
-                    <li>MySql</li>
-                    <li>Azure</li>
-                  </ul>
-                  <p>
+                  <p className="text-left text-[8px] md:text-xl">
+                    A cutting-edge web app built with ReactJS and NodeJS powered
+                    with AI, crafted to bridge the gap between talent and
+                    opportunity by connecting job seekers with recruiters in
+                    real-time.
+                  </p>
+                  <p className="text-[10px] md:text-xl font-semibold text-[#53e1e9] mt-2">
+                    Tech Stack Used for this Project
+                  </p>
+                  <div className="md:pl-2 text-[6px] md:text-[13px]">
+                    <p>ReactJS</p>
+                    <p className="text-[#53e1e9]">To Create Webpage</p>
+                    <p>NodeJS</p>
+                    <p className="text-[#53e1e9]">To Create Backend</p>
+                    <p>TailwindCSS</p>
+                    <p className="text-[#53e1e9]">For Styling</p>
+                    <p>Azure Database/MySQL</p>
+                    <p className="text-[#53e1e9]">For Database</p>
+                    <p>OpenAI API</p>
+                    <p className="text-[#53e1e9]">Text Auto Generation</p>
+                  </div>
+                  <p className="text-[8px] md:text-lg text-blue-600">
                     <a href="https://applykart.co/">https://applykart.co</a>
                   </p>
                 </div>
+                <div className="col-start-4 col-span-4 gap-x-2 content-center">
+                  <div className="relative">
+                    <div className="absolute -skew-x-12 min-h-full w-full max-w-[605px] ledlight top-2"></div>
+                    <img
+                      className="-skew-x-12 rounded-lg w-[600px] z-10"
+                      src="./Image/3a.png"
+                      alt="portfolio image"
+                    />
+                  </div>
+                </div>
               </div>
               <div className=" md:grid grid-cols-5 place-items-start">
-                <div className="col-start-4 col-end-6 text-[11px] shadow-xl p-2 border-neutral-700 shadow-slate-700 rounded-md">
+                <div className="col-start-4 col-end-6 text-[11px] shadow-xl p-2 border-neutral-700 shadow-slate-700 rounded-md ">
                   <p className="font-bold text-md">Ecommerse Web Application</p>
                   <p>
                     An ecommerce application, <br />
